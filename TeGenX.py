@@ -73,7 +73,8 @@ def textGenThree(text):
 
        generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
        return generated_text
-
+       
+@st.cache_resource
 def textGenFour(text):
        tokenizer = GPT2Tokenizer.from_pretrained("HooshvareLab/gpt2-fa")
        model = GPT2LMHeadModel.from_pretrained("HooshvareLab/gpt2-fa")
@@ -86,6 +87,7 @@ def textGenFour(text):
               early_stopping=True
        )
        return tokenizer.decode(outputs[0], skip_special_tokens=True)
+       
 st.title("🧠 TeGenX Text Generator")
 #model option
 '''## English Model'''
